@@ -2,8 +2,14 @@
 const express = require('express')
 const app = express();
 const mongoose = require('mongoose');
-const userRoutes = require('./routes/user.js')
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const expressValidator = require('express-validator');
 require('dotenv').config();
+    // Import Routes
+    const userRoutes = require('./routes/user.js');
+
 
 // MONGODB CONNECTION //
 mongoose.connect(
@@ -18,6 +24,12 @@ mongoose.connect(
 mongoose.connection.on('error', err => {
     console.log(`DB Connection Error: ${err.message}`);
 });
+
+// MIDDLEWARE //
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(expressValidator());
 
 // ROUTES MIDDLEWARE //
 app.use("/api", userRoutes);
