@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
 require('dotenv').config();
     // Import Routes
+    const authRoutes = require('./routes/auth.js');
     const userRoutes = require('./routes/user.js');
 
 
@@ -32,6 +33,7 @@ app.use(cookieParser());
 app.use(expressValidator());
 
 // ROUTES MIDDLEWARE //
+app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 
 
