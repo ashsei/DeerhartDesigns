@@ -11,7 +11,7 @@ require('dotenv').config();
     const authRoutes = require('./routes/auth.js');
     const userRoutes = require('./routes/user.js');
     const categoryRoutes = require('./routes/category.js');
-
+    const productRoutes = require('./routes/product.js');
 
 // MONGODB CONNECTION //
 mongoose.connect(
@@ -37,6 +37,7 @@ app.use(expressValidator());
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 app.use("/api", categoryRoutes);
+app.use("/api", productRoutes);
 
 
 // LISTENER //
