@@ -10,6 +10,7 @@ require('dotenv').config();
     // Import Routes
     const authRoutes = require('./routes/auth.js');
     const userRoutes = require('./routes/user.js');
+    const categoryRoutes = require('./routes/category.js');
 
 
 // MONGODB CONNECTION //
@@ -35,6 +36,7 @@ app.use(expressValidator());
 // ROUTES MIDDLEWARE //
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
+app.use("/api", categoryRoutes);
 
 
 // LISTENER //
