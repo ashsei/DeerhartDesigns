@@ -11,7 +11,7 @@ router.get('/product/:productId', read)
 router.get('/products/categories', listCategories)
 router.get('/product/photo/:productId', photo)
 
-router.post("/products/by/search", listBySearch);
+router.post('/products/by/search', listBySearch);
 router.post('/product/create/:userId', requireSignin, isAuth, isAdmin, create);
 
 router.delete('/product/:productId/:userId', requireSignin, isAuth, isAdmin, remove);
