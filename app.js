@@ -15,6 +15,7 @@ const expressValidator = require('express-validator');
     const categoryRoutes = require('./routes/category.js');
     const productRoutes = require('./routes/product.js');
     const braintreeRoutes = require('./routes/braintree.js');
+    const orderRoutes = require('./routes/order.js');
 
 // MONGODB CONNECTION //
 mongoose.connect(
@@ -22,6 +23,7 @@ mongoose.connect(
         useUnifiedTopology: true, 
         useNewUrlParser: true,
         useCreateIndex: true,
+        useFindAndModify: false
     }
 )
 .then(() => console.log('Connected to MongoDB!'));
@@ -43,6 +45,7 @@ app.use("/api", userRoutes);
 app.use("/api", categoryRoutes);
 app.use("/api", productRoutes);
 app.use("/api", braintreeRoutes);
+app.use("/api", orderRoutes);
 
 // LISTENER //
 const port = process.env.PORT || 8000;
