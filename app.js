@@ -14,6 +14,7 @@ const expressValidator = require('express-validator');
     const userRoutes = require('./routes/user.js');
     const categoryRoutes = require('./routes/category.js');
     const productRoutes = require('./routes/product.js');
+    const braintreeRoutes = require('./routes/braintree.js');
 
 // MONGODB CONNECTION //
 mongoose.connect(
@@ -41,7 +42,7 @@ app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 app.use("/api", categoryRoutes);
 app.use("/api", productRoutes);
-
+app.use("/api", braintreeRoutes);
 
 // LISTENER //
 const port = process.env.PORT || 8000;
