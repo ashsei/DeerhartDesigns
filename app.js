@@ -23,7 +23,8 @@ mongoose.connect(
         useUnifiedTopology: true, 
         useNewUrlParser: true,
         useCreateIndex: true,
-        useFindAndModify: false
+        useFindAndModify: false,
+        useCreateIndex: true
     }
 )
 .then(() => console.log('Connected to MongoDB!'));
