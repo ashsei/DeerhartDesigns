@@ -83,13 +83,13 @@ exports.update = (req, res) => {
                 error: 'Image could not be uploaded.'
             });
         }
-        // Validates Required Fields
-        const { name, description, price, category, quantity, height, length } = fields;
-        if (!name || !description || !price || !category || !quantity || !height || !length) {
-            return res.status(400).json({
-                error: 'All fields are required.'
-            });
-        }
+        // Validates Required Fields 
+        // const { name, description, price, category, quantity, height, length } = fields;
+        // if (!name || !description || !price || !category || !quantity || !height || !length) {
+        //     return res.status(400).json({
+        //         error: 'All fields are required.'
+        //     });
+        // }
         let product = req.product;
         product = _.extend(product, fields);
 
