@@ -15,7 +15,7 @@ const uniqueMessage = (error) => {
       fieldName.slice(1) +
       " already exists";
   } catch (ex) {
-    output = "Unique field already exists";
+    output = "Unique Field Already Exists";
   }
   return output;
 };
@@ -33,7 +33,7 @@ exports.errorHandler = (error) => {
         message = uniqueMessage(error);
         break;
       default:
-        message = "Something went wrong";
+        message = "Something Went Wrong";
     }
   } else {
     for (let errorName in error.errorors) {
