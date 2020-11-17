@@ -14,8 +14,8 @@ const authRoutes = require("./routes/auth.js");
 const userRoutes = require("./routes/user.js");
 const categoryRoutes = require("./routes/category.js");
 const productRoutes = require("./routes/product.js");
-const braintreeRoutes = require("./routes/braintree.js");
 const orderRoutes = require("./routes/order.js");
+const stripeRoutes = require("./routes/stripe.js")
 
 // MONGODB CONNECTION //
 mongoose
@@ -24,7 +24,6 @@ mongoose
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
-    useCreateIndex: true,
   })
   .then(() => console.log("Connected to MongoDB!"));
 
@@ -44,8 +43,8 @@ app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 app.use("/api", categoryRoutes);
 app.use("/api", productRoutes);
-app.use("/api", braintreeRoutes);
 app.use("/api", orderRoutes);
+app.use("/api", stripeRoutes);
 
 // LISTENER //
 const port = process.env.PORT || 8000;

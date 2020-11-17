@@ -247,7 +247,8 @@ exports.listSearch = (req, res) => {
 };
 
 exports.decreaseQuantity = (req, res, next) => {
-  let bulkOps = req.body.order.products.map((item) => {
+  let products = req.body.order.products
+  let bulkOps = products.map((item) => {
     return {
       updateOne: {
         filter: { _id: item._id },
