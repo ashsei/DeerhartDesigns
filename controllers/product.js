@@ -59,9 +59,9 @@ exports.create = (req, res) => {
     let product = new Product(fields);
     // Validates Image Size
     if (files.photo) {
-      if (files.photo.size > 1000000) {
+      if (files.photo.size > 2000000) {
         return res.status(400).json({
-          error: "Image size must be less than 1 MB.",
+          error: "Image size must be less than 2 MB.",
         });
       }
       product.photo.data = fs.readFileSync(files.photo.path);
