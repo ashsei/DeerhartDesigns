@@ -79,7 +79,6 @@ exports.update = (req, res) => {
 
 exports.addOrderToUserHistory = (req, res, next) => {
   let history = [];
-  console.log(req.body.order)
   let products = req.body.order.products
   products.forEach((item) => {
     history.push({
