@@ -27,7 +27,6 @@ exports.create = (req, res) => {
         error: errorHandler(error),
       });
     }
-    console.log('ORDER JUST SENT =>', order)
     const emailDataToAdmin = {
       to: ['ashton@seibel.life', 'kangaroo@deerhartdesigns.com'],
       from: 'no-reply@deerhartdesigns.com',
