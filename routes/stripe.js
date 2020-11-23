@@ -6,15 +6,9 @@ require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
 const calculateOrderAmount = items => {
-    let itemTotal = 0;
-    let total = 0;
-    for (let i = 0; i < items.length; i++) {
-        itemTotal = items[i].price * items[i].count;
-
-        total += itemTotal;
-        return total;
-    }
-    return total;
+    return items.reduce((currentValue, nextValue) => {
+        return currentValue + nextValue.count * nextValue.price
+    }, 0)
 }
 
 router.post("/create-payment-intent", async (req, res) => {
